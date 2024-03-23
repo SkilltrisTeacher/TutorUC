@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int lives = 3;
+    private Game game;
     private Vector3 startPosition;
+
+    private void Awake()
+    {
+        game = FindObjectOfType<Game>();
+        if (game != null) Debug.Log("Не найден скрипт Game.");
+    }
 
     private void Start()
     {
@@ -14,8 +20,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage()
     {
-        lives --;
+        game.LoseLife();
         transform.position = startPosition;
-        PlayerUI.ui.SetLives(lives);
     }
 }

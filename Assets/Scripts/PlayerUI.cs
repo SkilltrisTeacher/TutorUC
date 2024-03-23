@@ -10,7 +10,6 @@ public class PlayerUI : MonoBehaviour
     public static PlayerUI ui;
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text coinText;
-    private int coinCount;
 
     private void Awake()
     {
@@ -26,11 +25,5 @@ public class PlayerUI : MonoBehaviour
     public void ShowCoinCount(int amount)
     {
         coinText.text = amount.ToString();
-    }
-
-    public void AddCoin()
-    {
-        coinCount++;
-        coinText.text = coinCount.ToString();
-    }
+    }    
 }

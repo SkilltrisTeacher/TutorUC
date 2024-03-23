@@ -32,6 +32,9 @@ public class Game : MonoBehaviour
         livesCount = startLives;
         Time.timeScale = 1f;
         restartMenu.SetActive(false);
+        PlayerUI.ui.SetLives(livesCount);
+        coinCount = 0;
+        PlayerUI.ui.ShowCoinCount(coinCount);
         SceneManager.LoadScene(mainMenuName);
     }
 

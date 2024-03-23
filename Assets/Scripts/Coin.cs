@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    [SerializeField] private int coinCost = 1;
     [SerializeField] private string playerLayer = "Player";
     private bool isCollected;
 
@@ -17,7 +18,9 @@ public class Coin : MonoBehaviour
     {
         if (isCollected) return;
         isCollected = true;
-        PlayerUI.ui.AddCoin();
+        Game game = FindObjectOfType<Game>();
+        if (game != null) game.AddCoins(coinCost);
+        else Debug.Log("Не найден скрипт Game.");
         Destroy(gameObject);
     }
 }
